@@ -7,7 +7,6 @@ const Header = () => {
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
           <LinkContainer to="/">
             <Navbar.Brand>DrumCare</Navbar.Brand>
           </LinkContainer>
@@ -27,7 +26,6 @@ const Header = () => {
             </NavDropdown> */}
             </Nav>
           </Navbar.Collapse>
-        </Container>
       </Navbar>
     </>
   )

@@ -11,7 +11,7 @@ function App() {
     <Router>
       <Header />
       <main className="py-3">
-        <Container>
+        <Container> 
           <Route path="/" component={Home} exact />
           <Route path="/contact" component={Contact} />
         </Container>

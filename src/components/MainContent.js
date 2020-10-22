@@ -7,7 +7,11 @@ const MainContent = () => {
       <Container>
         <h1>DrumCare YEG</h1>
 
-        <p>We offer tuning services to the YEG area</p>
+        <blockquote className="blockquote ml-4">
+          <i>Professional drum tuning and maintenace service.
+          Convenient and hassle-free</i>
+        </blockquote>
+
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
           perferendis aspernatur ducimus! Tenetur laboriosam adipisci numquam

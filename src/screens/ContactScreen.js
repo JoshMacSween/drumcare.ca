@@ -1,38 +1,101 @@
-import React from 'react'
-import { Form } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Form, Button } from 'react-bootstrap'
 
 const ContactScreen = () => {
+  const [inquiry, setInquiry] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    kitSize: '',
+    package: '',
+    inquiryText: '',
+  })
+
+  const handleSubmit = (event) => {
+    console.log(event);
+  }
+
+  const handleChangeName = (event) => {
+    const currentData = event.target.value
+    setInquiry({ ...inquiry, name: currentData })
+  }
+  const handleChangeEmail = (event) => {
+    const currentData = event.target.value
+    setInquiry({ ...inquiry, email: currentData })
+  }
+  const handleChangeNumber = (event) => {
+    const currentData = event.target.value
+    setInquiry({ ...inquiry, phoneNumber: currentData })
+  }
+  const handleChangeKit = (event) => {
+    const currentData = event.target.value
+    setInquiry({ ...inquiry, kitSize: currentData })
+  }
+  const handleChangePackage = (event) => {
+    const currentData = event.target.value
+    setInquiry({ ...inquiry, package: currentData })
+  }
+  const handleChangeInquiryText = (event) => {
+    const currentData = event.target.value
+    setInquiry({ ...inquiry, inquiryText: currentData })
+  }
+
   return (
     <>
-      <Form>
+      <Form onSubmit={handleSubmit} className="py-3">
         <Form.Group controlId="exampleForm.ControlInput1">
+          <Form.Label>Your Name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            value={inquiry.name}
+            onChange={handleChangeName}
+          />
+          <br />
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="name@example.com" />
+          <Form.Control required
+            type="email"
+            value={inquiry.email}
+            onChange={handleChangeEmail}
+          />
+          <br />
+          <Form.Label>Telephone Number</Form.Label>
+          <Form.Control required
+            type="number"
+            value={inquiry.phoneNumber}
+            onChange={handleChangeNumber}
+          />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>Example select</Form.Label>
-          <Form.Control as="select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+        <Form.Group controlId="kitsize">
+          <Form.Label>How many pieces is your kit?</Form.Label>
+          <Form.Control required
+            type="number"
+            value={inquiry.kitSize}
+            onChange={handleChangeKit}
+          />
+        </Form.Group>
+        <Form.Group controlId="package">
+          <Form.Label>What Package Would You Like</Form.Label>
+          <Form.Control required as="select" onChange={handleChangePackage}>
+            <option>Bronze</option>
+            <option>Silver</option>
+            <option>Gold</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlSelect2">
-          <Form.Label>Example multiple select</Form.Label>
-          <Form.Control as="select" multiple>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </Form.Control>
+
+        <Form.Group controlId="inquiryText">
+          <Form.Label>Anything else you'd like us to know?</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            name="inquiryText"
+            value={inquiry.inquiryText}
+            onChange={handleChangeInquiryText}
+          />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlTextarea1">
-          <Form.Label>Example textarea</Form.Label>
-          <Form.Control as="textarea" rows={3} />
-        </Form.Group>
+        <div className="text-center">
+          <Button variant="primary" type="submit">Submit</Button>
+        </div>
       </Form>
     </>
   )
