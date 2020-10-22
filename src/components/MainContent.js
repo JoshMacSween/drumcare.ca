@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 const MainContent = () => {
   return (
     <>
-      <Container className="py-3">
+      <Container>
         <h1>DrumCare YEG</h1>
 
         <p>We offer tuning services to the YEG area</p>
