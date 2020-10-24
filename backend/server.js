@@ -16,6 +16,11 @@ app.get('/inquiry/:id', (req, res) => {
   res.json(inquiry)
 })
 
+app.post('/inquiry', (req, res) => {
+  res.send('Inquiry Posted!')
+  console.log("Posted!");
+})
+
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, console.log(`Server is listening on port 5000`))
